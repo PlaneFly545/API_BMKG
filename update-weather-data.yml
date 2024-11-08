@@ -25,12 +25,12 @@ jobs:
 
     - name: Run Weather Data Prediction and Update JSON
       run: |
-        python your_script.py  # Skrip Python Anda yang memperbarui file JSON
+        python test_Prediksi.py  # Skrip Python Anda yang memperbarui file JSON
 
     - name: Commit Updated JSON
       run: |
-        git config --global user.name "Your GitHub Username"
-        git config --global user.email "your-email@example.com"
+        git config --global user.name "PlaneFly545"
+        git config --global user.email "prabawasandi545@gmail.com"
         git add weather_prediction.json
         git commit -m "Update weather prediction data"
         git push
