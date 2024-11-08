@@ -2,7 +2,7 @@ name: Update Weather Data
 
 on:
   schedule:
-    - cron: '45 13 * * *'  # Setiap hari pada pukul 13:35 UTC (20:35 UTC+7)
+    - cron: '45 14 * * *'  # Setiap hari pada pukul 13:35 UTC (20:35 UTC+7)
   workflow_dispatch:  # Memungkinkan untuk dijalankan secara manual
 
 jobs:
@@ -27,12 +27,20 @@ jobs:
       run: |
         python test_Prediksi.py  # Gantilah dengan nama file Python Anda, misalnya weather_prediction.py
 
-    - name: Commit Updated JSON
+    - name: Commit Updated JSON and CSV
       run: |
         git config --global user.name "PlaneFly545"
         git config --global user.email "prabawasandi545@gmail.com"
-        git add weather_prediction.json  # Menambahkan file JSON yang sudah diperbarui
-        git commit -m "Update weather prediction data"  # Commit perubahan
-        git push  # Push ke repository
+        
+        # Menambahkan kedua file (JSON dan CSV) yang telah diubah
+        git add weather_prediction.json weather_prediction.csv  # Menambahkan kedua file JSON dan CSV
+        
+        # Memeriksa apakah ada perubahan sebelum commit
+        if git diff --cached --quiet; then
+          echo "No changes to commit."
+        else
+          git commit -m "Update weather prediction data"  # Commit perubahan
+          git push  # Push ke repository
+        fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Menyertakan token GitHub untuk autentikasi
