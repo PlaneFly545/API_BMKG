@@ -1,0 +1,38 @@
+name: Update Weather Data
+
+on:
+  schedule:
+    - cron: '49 13 * * *'  # Setiap hari pada pukul 13:35 UTC (20:35 UTC+7)
+  workflow_dispatch:  # Memungkinkan untuk dijalankan secara manual
+
+jobs:
+  update-weather-data:
+    runs-on: ubuntu-latest  # Menjalankan di lingkungan Ubuntu
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install joblib requests pandas  # Install dependencies yang dibutuhkan
+
+    - name: Run Weather Data Prediction and Update JSON
+      run: |
+        python test_Prediksi.py  # Gantilah dengan nama file Python Anda, misalnya weather_prediction.py
+
+    - name: Commit Updated JSON
+      run: |
+        git config --global user.name "PlaneFly545"
+        git config --global user.email "prabawasandi545@gmail.com"
+        git add weather_prediction.json  # Menambahkan file JSON yang sudah diperbarui
+        git commit -m "Update weather prediction data"  # Commit perubahan
+        git push  # Push ke repository
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Menyertakan token GitHub untuk autentikasi
