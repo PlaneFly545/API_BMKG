@@ -112,13 +112,6 @@ def predict_rain():
                 "datetime": day_data["datetime"],
                 "prediksi_curah_hujan": rain_prediction[0]
             })
-        
-        # Menyimpan hasil prediksi ke dalam file CSV
-        with open("weather_prediction.csv", mode="w", newline="") as file:
-            writer = csv.DictWriter(file, fieldnames=["datetime", "prediksi_curah_hujan"])
-            writer.writeheader()
-            for result in results:
-                writer.writerow(result)
 
         # Menyimpan hasil prediksi dalam format JSON
         with open("weather_prediction.json", "w") as json_file:
