@@ -2,7 +2,7 @@ name: Update Weather Data
 
 on:
   schedule:
-    - cron: '49 13 * * *'  # Setiap hari pada pukul 13:35 UTC (20:35 UTC+7)
+    - cron: '05 14 * * *'  # Setiap hari pada pukul 13:35 UTC (20:35 UTC+7)
   workflow_dispatch:  # Memungkinkan untuk dijalankan secara manual
 
 jobs:
@@ -21,11 +21,11 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install joblib requests pandas  # Install dependencies yang dibutuhkan
+        pip install joblib requests pandas scikit-learn  # Tambahkan scikit-learn di sini
 
     - name: Run Weather Data Prediction and Update JSON
       run: |
-        python test_Prediksi.py  # Gantilah dengan nama file Python Anda, misalnya weather_prediction.py
+        python test_Prediksi.py  # Gantilah dengan nama file Python Anda jika berbeda, misalnya weather_prediction.py
 
     - name: Commit Updated JSON
       run: |
