@@ -2,7 +2,7 @@ name: Update Weather Data
 
 on:
   schedule:
-    - cron: '45 9 * * *'  # Setiap hari pada pukul 13:35 UTC (20:35 UTC+7)
+    - cron: '00 6 * * *'  # Setiap hari pada pukul 13:35 UTC (20:35 UTC+7)
   workflow_dispatch:  # Memungkinkan untuk dijalankan secara manual
 
 jobs:
