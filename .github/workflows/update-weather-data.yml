@@ -2,12 +2,12 @@ name: Update Weather Data
 
 on:
   schedule:
-    - cron: '05 14 * * *'  # Setiap hari pada pukul 13:35 UTC (20:35 UTC+7)
-  workflow_dispatch:  # Memungkinkan untuk dijalankan secara manual
+    - cron: '05 14 * * *' #ATUR WAKTU BERJALAN
+  workflow_dispatch:  
 
 jobs:
   update-weather-data:
-    runs-on: ubuntu-latest  # Menjalankan di lingkungan Ubuntu
+    runs-on: ubuntu-latest  
 
     steps:
     - name: Checkout Repository
@@ -35,4 +35,4 @@ jobs:
         git commit -m "Update weather prediction data"  # Commit perubahan
         git push  # Push ke repository
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Menyertakan token GitHub untuk autentikasi
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
