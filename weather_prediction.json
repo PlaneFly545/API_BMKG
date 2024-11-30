@@ -1,14 +1,14 @@
 [
     {
-        "datetime": "2024-11-29",
-        "prediksi_curah_hujan": 1.7303861668205622
-    },
-    {
         "datetime": "2024-11-30",
-        "prediksi_curah_hujan": 0.6556861671474647
+        "prediksi_curah_hujan": 1.6701219866325443
     },
     {
         "datetime": "2024-12-01",
-        "prediksi_curah_hujan": 0.031799422243446784
+        "prediksi_curah_hujan": 0.8596328686691035
+    },
+    {
+        "datetime": "2024-12-02",
+        "prediksi_curah_hujan": 0.6806877488464285
     }
 ]
