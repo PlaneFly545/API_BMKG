@@ -1,14 +1,14 @@
 [
     {
-        "datetime": "2025-04-01",
-        "prediksi_curah_hujan": 2.7933283134366476
-    },
-    {
         "datetime": "2025-04-02",
-        "prediksi_curah_hujan": 2.4696882669113553
+        "prediksi_curah_hujan": 3.174265756379113
     },
     {
         "datetime": "2025-04-03",
-        "prediksi_curah_hujan": 1.9383697076482884
+        "prediksi_curah_hujan": 2.3312901519067815
+    },
+    {
+        "datetime": "2025-04-04",
+        "prediksi_curah_hujan": 2.105715900385118
     }
 ]
